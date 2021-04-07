@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div style="height: 800px; display: flex;">
+      <calendar
+        ref="calendar"
+        :min-date="minDate"
+        :select-date="dateList"
+        :first-day-of-week="1"
+        :showTitle="true"
+        :isWeek="false"
+        :showTerm="false"
+        :mixinFestival="true"
+        :multiple="true">
+      </calendar>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Calendar from './components/Calendar';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Calendar
+  },
+  data() {
+    return {
+      minDate: new Date(),
+      dateList: [],
+    }
   }
 }
 </script>
